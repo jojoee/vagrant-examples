@@ -1,0 +1,9 @@
+API_VERSION = "2"
+
+Vagrant.configure(API_VERSION) do |config|
+  config.vm.box = "jojoee/baked-lamp"
+  config.vm.network "forwarded_port", guest: 80, host: 8081
+  config.vm.synced_folder ".", "/vagrant", type: "virtualbox"
+  config.vbguest.auto_update = false
+  config.vm.box_check_update = false
+end
